@@ -6,6 +6,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', function(req, res, next) {
+            return res.json("already uploaded!");
 	
     csv
             .fromPath(__dirname + '/' + 'bank_branches.csv', {headers: true})
