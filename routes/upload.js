@@ -1,9 +1,9 @@
-var csv = require('fast-csv');
-var mongoose = require('mongoose');
-var Bank = require('../models/bank');
+const csv = require('fast-csv');
+const mongoose = require('mongoose');
+const Bank = require('../models/bank');
 
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 router.get('/', function(req, res, next) {
 	
@@ -12,11 +12,11 @@ router.get('/', function(req, res, next) {
             .on("data", function (data) {
                 console.log(data);
                 //Removes spaces from property value in-case it does have
-                for (var key in data) {
+                for (let key in data) {
                     data[key] = data[key].trim();
                 }
                 //Create a bank Object and assign all values for it to save in database
-                var bank = new Bank({
+                let bank = new Bank({
                     ifsc: data['ifsc'],
                     bank_id: data['bank_id'],
                     branch: data['branch'],
