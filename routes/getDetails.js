@@ -7,7 +7,9 @@ const Bank = require('../models/bank');
 //search by ifsc code
 router.post('/ifsc', function(req, res, next) {
 
-    let ifsc = req.body.ifsc.toUpperCase();  
+     
+    if(!req.body.ifsc) return res.status(500).json({message:"IFSC code is not given!"});
+    let ifsc = req.body.ifsc.toUpperCase(); 
     //console.log(ifsc)
     Bank.findOne({ifsc:ifsc},function(err,bank){
             if (err)
@@ -19,6 +21,7 @@ router.post('/ifsc', function(req, res, next) {
 
 //search by city and bank name
 router.post('/city', function(req, res, next) {
+    if(!req.body.city && !req.body.bank_name) return res.status(500).json({message:"city or bank_name is not given!"});
     let city = req.body.city.toUpperCase();
     let bank_name = req.body.bank_name.toUpperCase();
     
