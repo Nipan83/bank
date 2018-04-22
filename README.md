@@ -1,14 +1,21 @@
-# Node BLOG REST API
+# Node BANK REST API
 
-This is a simple REST API server implementation built on top `Node.js` and `Express.js` with `Mongoose.js` for `MongoDB` integration. Authentication is handled using `JWT` integration.
+This is a simple REST API server implementation built on top `Node.js` and `Express.js` with `Mongoose.js` for `MongoDB` integration.
 
-[![Build Status](https://travis-ci.org/Nipan83/blog-API.svg?branch=master)](https://travis-ci.org/Nipan83/blog-API)
+# Features
+
+Given a bank branch IFSC code, get branch details
+Given a bank name and city, gets details of all branches of the bank in the city
+
+
+[![Build Status](https://travis-ci.org/Nipan83/bankApi.svg?branch=master)](https://travis-ci.org/Nipan83/bankApi)
+
 
 ## Get Started:
 
-`git clone https://github.com/Nipan83/blog-API.git`
+`git clone https://github.com/Nipan83/bankApi.git`
 
-`cd blog-API`
+`cd bankApi`
 
 ## Running project
 
@@ -35,7 +42,7 @@ You need to have Node.js and npm installed.
 
 ### Heroku 
 
-`https://nipan-blogapi.herokuapp.com/`
+`https://nipan-bankapp.herokuapp.com/`
 
 ## RUN THE APIs
 
@@ -43,95 +50,38 @@ Check the APIs using [Postman](https://chrome.google.com/webstore/detail/postman
 
 ## Routes
 
-### POST Register
+### POST getDetails/ifsc
 
-`http://localhost:3000/register` <br />
+`http://localhost:3000/getDetails/ifsc` <br />
 
 or <br />
 
-`https://nipan-blogapi.herokuapp.com/register`
+`https://nipan-bankapp.herokuapp.com/getDetails/ifsc`
 
-This route allows a user to register herself on the platform with basic information <br />
+This route allows a user to search bank details on the platform with information <br />
 
-▪ `username`, `password`, `firstname`, `lastname`, `blogURL` <br />
+▪ `ifsc` <br />
 
-All you need to do is pass the information in the request body in key-value pair 
+All you need to do is pass the ifsc code in the request body in key-value pair 
 
 ![alt text](https://i.imgur.com/yEhygsc.png)
 
-### POST Login
+### POST getDetails/city
 
-`http://localhost:3000/login` <br />
+`http://localhost:3000/getDetails/city` <br />
 
 or <br />
 
-`https://nipan-blogapi.herokuapp.com/login` <br />
+`https://nipan-bankapp.herokuapp.com/getDetails/city` <br />
 
-This route allows a user to log in herself on the platform with basic information <br />
+This route allows a user to search branches located in the city with a bank name<br />
 
-▪ `email` and `password` <br />
+▪ `city` and `bank_name` <br />
 
 All you need to do is pass the information in the request body in key-value pair 
 
-A `JWT TOKEN` will be returned which will be used for further using the API.
-
-The token should be placed in header `key` as `x-access-token` and `value` will be the token.
-
 ![alt text](https://i.imgur.com/FHMV8e9.png)
 
-### POST Blogost
-
-`http://localhost:3000/blogpost` <br />
-or <br />
-`https://nipan-blogapi.herokuapp.com/blogpost` <br />
-
-This route allows a user to create a blog post with following parameters <br />
-
-▪ Title, content <br />
-
-Authentication is handled here using `JWT`
-
-![alt text](https://i.imgur.com/XURrohi.png) <br />
-<br />
-![alt text](https://i.imgur.com/I7u6EaQ.png)
-
-
-### PUT follow/{username}
-
-`http://localhost:3000/follow/{username}`<br />
-or <br />
-`https://nipan-blogapi.herokuapp.com/follow/{username}`<br />
-
-This route allows you to follow new users <br />
-
-![alt text](https://i.imgur.com/DOA5RVB.png)
-
-### GET feed
-
-`http://localhost:3000/feed` <br />
-or <br />
-`https://nipan-blogapi.herokuapp.com/feed` <br />
-
-This route returns all blog posts of users you follow
-<br />
-
-![alt text](https://i.imgur.com/6e14y8D.png)
-
-`NOTE: For viewing own blog post user have to follow himself.`
-
-
-
-### GET users
-
-`http://localhost:3000/getuser` <br />
-or <br />
-`https://nipan-blogapi.herokuapp.com/getuser`<br />
-
-This route returns all the users registered.
-
-This route is for monitoring purpose.
-
-Token will also be needed here.
 
 ## TESTING
 
@@ -139,10 +89,6 @@ Token will also be needed here.
 
 	# TESTING of APIs
 	npm test
-
-	# NOTE: Since email field is unique for registering a user. So register test case may fail after running npm test two times.
-
-	# To prevent the error, open test/test.js and change the email value to a new emailId.
 
 ```
 
