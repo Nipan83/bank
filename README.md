@@ -5,6 +5,7 @@ This is a simple REST API server implementation built on top `Node.js` and `Expr
 # Features
 
 Given a bank branch IFSC code, get branch details
+<br />
 Given a bank name and city, gets details of all branches of the bank in the city
 
 
