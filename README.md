@@ -4,9 +4,9 @@ This is a simple REST API server implementation built on top `Node.js` and `Expr
 
 # Features
 
-Given a bank branch IFSC code, get branch details
+▪ Given a bank branch IFSC code, get branch details
 <br />
-Given a bank name and city, gets details of all branches of the bank in the city
+▪ Given a bank name and city, gets details of all branches of the bank in the city
 
 
 [![Build Status](https://travis-ci.org/Nipan83/bankApi.svg?branch=master)](https://travis-ci.org/Nipan83/bankApi)
@@ -65,7 +65,7 @@ This route allows a user to search bank details on the platform with information
 
 All you need to do is pass the ifsc code in the request body in key-value pair 
 
-![alt text](https://i.imgur.com/yEhygsc.png)
+![alt text](https://i.imgur.com/1RVUev4.png)
 
 ### POST getDetails/city
 
@@ -81,7 +81,7 @@ This route allows a user to search branches located in the city with a bank name
 
 All you need to do is pass the information in the request body in key-value pair 
 
-![alt text](https://i.imgur.com/FHMV8e9.png)
+![alt text](https://i.imgur.com/NgSraI1.png)
 
 
 ## TESTING
